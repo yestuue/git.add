@@ -1,14 +1,39 @@
 @import "tailwindcss";
 
+@theme {
+  --font-headline: "Inter Tight", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --radius: 1rem;
+}
+
 @layer base {
   :root {
-    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --radius: 1rem;
+    --color-border: rgba(255, 255, 255, 0.1);
+    font-family: var(--font-sans);
     letter-spacing: -0.011em;
+  }
+
+  /* Applied to all headlines on the site to match the punchy display aesthetic */
+  h1, h2, h3, h4, h5, h6, .font-headline {
+    font-family: var(--font-headline);
+    letter-spacing: -0.038em;
+  }
+
+  .text-muted {
+    color: rgba(255, 255, 255, 0.35);
+  }
+  .text-muted-foreground {
+    color: #a1a1aa;
+  }
+  .text-foreground {
+    color: #ffffff;
   }
 }
 
-/* Custom focus ring styling for accessibility */
+/* Custom focus ring styling for accessibility in monochrome */
 *:focus-visible {
-  outline: 2px solid #000000;
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
 }

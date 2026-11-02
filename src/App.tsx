@@ -1,78 +1,85 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React, { useState } from 'react';
-import { Navbar } from './components/Navbar';
+import { Navbar, type PageTab } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { ReviewModal } from './components/ReviewModal';
-import { AuthModal } from './components/AuthModal';
-import { ReferenceComparison } from './components/ReferenceComparison';
+import { Features } from './components/Features';
+import { QuickOrientation } from './components/QuickOrientation';
+import { AboutSection } from './components/AboutSection';
+import { ProjectsSection } from './components/ProjectsSection';
+import { AcademicPlanner } from './components/AcademicPlanner';
+import { ContactSection } from './components/ContactSection';
+import { Footer } from './components/Footer';
+import TopologyField from './components/TopologyField';
 
 export default function App() {
-  const [brandName, setBrandName] = useState<string>('Twinkle.ai');
-  const [isReviewModalOpen, setIsReviewModalOpen] = useState<boolean>(false);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
-  const [authMode, setAuthMode] = useState<'trial' | 'login'>('trial');
+  const [activeTab, setActiveTab] = useState<PageTab>('home');
 
-  const handleOpenTrial = () => {
-    setAuthMode('trial');
-    setIsAuthModalOpen(true);
-  };
-
-  const handleOpenLogin = () => {
-    setAuthMode('login');
-    setIsAuthModalOpen(true);
+  const handleNavigate = (sectionId: string) => {
+    setActiveTab(sectionId as PageTab);
+    setTimeout(() => {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 50);
   };
 
   return (
-    <div className="min-h-screen bg-white text-neutral-950 font-sans flex flex-col relative selection:bg-neutral-950 selection:text-white overflow-x-hidden">
-      {/* WCAG 2.1 AAA Accessible Skip Link */}
+    <div className="dark relative min-h-screen bg-black text-white font-sans flex flex-col selection:bg-white selection:text-black overflow-x-hidden">
+      {/* 3D Animated Topology Field Canvas Background */}
+      <div 
+        className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <TopologyField className="w-full h-full opacity-70 pointer-events-none" />
+      </div>
+
+      {/* Accessible Skip Link */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-neutral-950 focus:text-white focus:rounded-lg focus:shadow-xl focus:outline-2 focus:outline-offset-2 focus:outline-neutral-900 text-sm font-medium transition-all"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded-lg focus:shadow-xl focus:outline-none text-sm font-bold"
       >
         Skip to main content
       </a>
 
-      {/* Top Navigation Bar: 1:1 replica */}
-      <Navbar
-        brandName={brandName}
-        onOpenTrial={handleOpenTrial}
-        onOpenLogin={handleOpenLogin}
-      />
-
-      {/* Main Landmark Containing the 1:1 Hero Design */}
-      <main 
-        id="main-content" 
-        tabIndex={-1} 
-        className="flex-1 flex flex-col items-center justify-center focus:outline-none"
-      >
-        <Hero
-          onOpenReviews={() => setIsReviewModalOpen(true)}
-          onOpenTrial={handleOpenTrial}
+      {/* Main Content Layout over Background */}
+      <div className="relative z-10 flex flex-col min-h-screen w-full">
+        {/* Sticky Navigation Bar */}
+        <Navbar
+          activeTab={activeTab}
+          onSelectTab={(tab) => handleNavigate(tab)}
         />
-      </main>
 
-      {/* Accessible Modals */}
-      <ReviewModal
-        isOpen={isReviewModalOpen}
-        onClose={() => setIsReviewModalOpen(false)}
-      />
+        {/* Main Content Landmark */}
+        <main 
+          id="main-content" 
+          tabIndex={-1} 
+          className="flex-1 flex flex-col items-center w-full focus:outline-none pt-[64px] sm:pt-[72px]"
+        >
+          {/* ① Hero — First Impression & Identity */}
+          <Hero onNavigate={handleNavigate} />
 
-      <AuthModal
-        isOpen={isAuthModalOpen}
-        mode={authMode}
-        brandName={brandName}
-        onClose={() => setIsAuthModalOpen(false)}
-      />
+          {/* ② Quick Orientation — Roadmap for new visitors */}
+          <QuickOrientation onNavigate={handleNavigate} />
 
-      {/* 1:1 Replica Inspector & Verification Tools */}
-      <ReferenceComparison
-        currentBrand={brandName}
-        onBrandChange={setBrandName}
-      />
+          {/* ③ Features / Web Standards Section */}
+          <Features />
+
+          {/* ④ About Me — Background, Skills, Multimedia */}
+          <AboutSection />
+
+          {/* ⑤ Projects — Sample Work Showcase */}
+          <ProjectsSection />
+
+          {/* ⑥ Academic Task Planner — Interactive JS System */}
+          <AcademicPlanner />
+
+          {/* ⑦ Contact — Validated Form */}
+          <ContactSection />
+        </main>
+
+        {/* Site Footer */}
+        <Footer onNavigate={handleNavigate} />
+      </div>
     </div>
   );
 }
