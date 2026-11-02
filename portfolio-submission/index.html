@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alex Adeleke - Computer Science Undergraduate & Full-Stack Web Developer Portfolio for COS 106 Term Project at MIVA Open University.">
+  <meta name="author" content="Alex Adeleke">
+  <title>Alex Adeleke | COS 106 Web Technologies Portfolio</title>
+  
+  <!-- Google Fonts: Inter Tight & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Standalone Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Interactive 2D/3D Particle Constellation Canvas Background -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ========================================================= -->
+  <!-- NAVIGATION BAR (Fixed Header)                              -->
+  <!-- ========================================================= -->
+  <header id="navbar" class="header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      
+      <!-- Brand Identity -->
+      <a href="#home" class="brand-link" aria-label="Alex Adeleke Home">
+        <span class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon-svg">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </span>
+        <div class="brand-text">
+          <span class="brand-name">Alex Adeleke</span>
+          <span class="brand-subtitle">COS 106 · Portfolio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="nav-links desktop-only" role="menubar">
+        <a href="#about" class="nav-link" role="menuitem">About</a>
+        <a href="#projects" class="nav-link" role="menuitem">Projects</a>
+        <a href="#planner" class="nav-link" role="menuitem">Planner</a>
+      </div>
+
+      <!-- Right Actions: CTA & Mobile Hamburger -->
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-pill desktop-only">
+          <span>Get in Touch</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button" id="mobile-toggle" class="mobile-toggle mobile-only" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <svg id="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-svg">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg id="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-svg hidden">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-drawer" class="mobile-drawer" hidden>
+      <div class="mobile-drawer-content">
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#about" class="mobile-nav-link">About & Academics</a>
+        <a href="#projects" class="mobile-nav-link">Sample Projects</a>
+        <a href="#planner" class="mobile-nav-link">Task Planner</a>
+        <a href="#contact" class="mobile-nav-link">Contact Me</a>
+        <a href="#contact" class="btn btn-primary w-full mt-2">
+          <span>Get in Touch</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- MAIN CONTENT LANDMARK                                     -->
+  <!-- ========================================================= -->
+  <main id="main-content">
+
+    <!-- ── 1. HERO SECTION ── -->
+    <section id="home" class="section hero-section" aria-labelledby="hero-title">
+      <div class="hero-card">
+        <div class="hero-content">
+          <h1 id="hero-title" class="hero-headline">
+            Building modern
+            <span class="doodle-wrapper">
+              <em class="doodle-text">web apps</em>
+              <svg class="doodle-svg" viewBox="0 0 220 70" fill="none" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 38 12 C 78 5, 142 5, 185 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.45" />
+                <path d="M 16 35 C 10 12, 60 4, 110 4 C 170 4, 210 12, 210 34 C 210 54, 160 66, 105 66 C 45 66, 10 54, 14 32 C 18 16, 68 8, 120 7 C 170 6, 204 18, 198 38" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+              </svg>
+            </span>
+            <span class="block-mobile">&amp; digital experiences</span>
+          </h1>
+
+          <p class="hero-bio">
+            Hi, I'm <strong class="text-white">Alex Adeleke</strong> — an aspiring software engineer and computer science undergraduate at MIVA Open University. I design and develop responsive, accessible, and high-performance web applications using semantic HTML5, modern CSS Grid/Flexbox, and dynamic JavaScript. Explore my sample projects, academic milestones, and interactive study planner below.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <span>Explore Projects</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <a href="#planner" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>Interactive Planner</span>
+            </a>
+
+            <a href="#contact" class="btn-link">Get in Touch &rarr;</a>
+          </div>
+
+          <div class="standards-note">
+            <span>Designed with</span>
+            <span class="underline-white">W3C semantic standards &amp; responsive design</span>
+          </div>
+
+          <!-- Hero Stats Card -->
+          <div class="hero-stats-card">
+            <div class="stat-item">
+              <div class="stat-top">
+                <span class="stat-number">15+</span>
+              </div>
+              <div class="stat-label">Projects Delivered</div>
+            </div>
+
+            <div class="stat-item">
+              <div class="stat-top">
+                <span class="stat-number">4.85</span>
+              </div>
+              <div class="stat-label">First Class CGPA</div>
+            </div>
+
+            <div class="stat-item">
+              <div class="stat-top">
+                <span class="stat-number">100%</span>
+              </div>
+              <div class="stat-label">W3C Valid Markup</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech Stack Bar Below Card -->
+      <div class="tech-stack-bar" aria-label="Core Technology Pillars">
+        <div class="tech-lead">
+          <div class="lead-bar" aria-hidden="true"></div>
+          <p class="lead-text">
+            Specialized in <span class="tag-pill">Modern Web Systems</span> &amp; client-side application architecture.
+          </p>
+        </div>
+
+        <div class="tech-chips-grid">
+          <div class="tech-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="tech-icon">
+            <span class="tech-name">HTML5</span>
+          </div>
+          <div class="tech-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" class="tech-icon">
+            <span class="tech-name">CSS3</span>
+          </div>
+          <div class="tech-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-icon">
+            <span class="tech-name">JS ES6+</span>
+          </div>
+          <div class="tech-chip">
+            <span class="w3c-badge">W3C</span>
+            <span class="tech-name">Valid</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 2. QUICK ORIENTATION ROADMAP ── -->
+    <section id="orientation" class="section orientation-section" aria-label="Quick Navigation Roadmap">
+      <div class="section-header">
+        <h2 class="section-title">Explore The Platform at a Glance</h2>
+        <p class="section-subtitle">Direct navigation to all essential sections mandated by the MIVA Open University COS 106 specification.</p>
+      </div>
+
+      <div class="roadmap-grid">
+        <!-- Card 1 -->
+        <a href="#about" class="roadmap-card">
+          <div class="roadmap-top">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="icon-svg">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <span class="req-tag">Req 2</span>
+          </div>
+          <div class="roadmap-body">
+            <h3 class="roadmap-title">About Me &amp; Academics</h3>
+            <p class="roadmap-desc">Educational background with semantic HTML tables, CGPA (4.85), career trajectory, skills, and project defense.</p>
+          </div>
+          <div class="roadmap-footer">
+            <span class="badge-text">Coursework Table</span>
+            <span class="open-link">Open &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="#projects" class="roadmap-card">
+          <div class="roadmap-top">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="icon-svg">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <span class="req-tag">Req 3</span>
+          </div>
+          <div class="roadmap-body">
+            <h3 class="roadmap-title">Sample Projects</h3>
+            <p class="roadmap-desc">Featured sample web applications with project breakdowns, semantic structures, and GitHub code repositories.</p>
+          </div>
+          <div class="roadmap-footer">
+            <span class="badge-text">3 Case Studies</span>
+            <span class="open-link">Open &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="#planner" class="roadmap-card">
+          <div class="roadmap-top">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="icon-svg">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+            </div>
+            <span class="req-tag">Req 4</span>
+          </div>
+          <div class="roadmap-body">
+            <h3 class="roadmap-title">Academic Task Planner</h3>
+            <p class="roadmap-desc">Interactive JavaScript task engine: add tasks, mark as complete, delete, and filter with LocalStorage persistence.</p>
+          </div>
+          <div class="roadmap-footer">
+            <span class="badge-text">Interactive JS</span>
+            <span class="open-link">Open &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="#contact" class="roadmap-card">
+          <div class="roadmap-top">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="icon-svg">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <span class="req-tag">Req 5</span>
+          </div>
+          <div class="roadmap-body">
+            <h3 class="roadmap-title">Validated Contact Form</h3>
+            <p class="roadmap-desc">Client-side validated inquiry form enforcing non-empty fields, RFC email structure, and digit constraints.</p>
+          </div>
+          <div class="roadmap-footer">
+            <span class="badge-text">Strict Regex</span>
+            <span class="open-link">Open &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── 3. FEATURES / WEB STANDARDS BENTO GRID ── -->
+    <section id="standards" class="section standards-section" aria-labelledby="standards-heading">
+      <div class="section-header">
+        <h2 id="standards-heading" class="section-title">Built to Industry Web Standards</h2>
+        <p class="section-subtitle">Demonstrating core competencies required by the COS 106 specification: semantic HTML5, modern CSS Grid/Flexbox, and dynamic JavaScript execution.</p>
+      </div>
+
+      <!-- Bento Cards Grid -->
+      <div class="bento-grid">
+        <!-- Bento Card 1 -->
+        <div class="bento-card">
+          <div class="bento-card-top">
+            <div class="bento-header">
+              <h3 class="bento-title">Semantic HTML5</h3>
+              <div class="bento-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+            <p class="bento-desc">Strict document hierarchy using proper landmarks, accessible tables, ordered lists, and semantic tags for 100% W3C validity.</p>
+          </div>
+
+          <div class="bento-widget">
+            <div class="widget-header">
+              <span class="font-mono">&lt;document&gt;</span>
+              <span class="widget-tag">W3C Valid</span>
+            </div>
+            <div class="widget-tags-row">
+              <span class="code-tag">&lt;header&gt;</span>
+              <span class="code-tag">&lt;main&gt;</span>
+              <span class="code-tag">&lt;article&gt;</span>
+              <span class="code-tag">&lt;footer&gt;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento Card 2 -->
+        <div class="bento-card">
+          <div class="bento-card-top">
+            <div class="bento-header">
+              <h3 class="bento-title">CSS3 Architecture</h3>
+              <div class="bento-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+            <p class="bento-desc">Mobile-first responsive styling utilizing modern CSS Grid systems, flexible box models, and fluid typography across all breakpoints.</p>
+          </div>
+
+          <div class="bento-widget">
+            <div class="widget-header">
+              <span>Responsive Viewport</span>
+              <span class="widget-tag">Fluid 320px &rarr; 4K</span>
+            </div>
+            <div class="grid-preview-row">
+              <div class="grid-box">Grid</div>
+              <div class="flex-box">Flexbox</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento Card 3 -->
+        <div class="bento-card">
+          <div class="bento-card-top">
+            <div class="bento-header">
+              <h3 class="bento-title">JavaScript Engine</h3>
+              <div class="bento-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+            <p class="bento-desc">Reactive DOM updates, pure array methods (filter, map, reduce), form regex validation, and persistent browser storage.</p>
+          </div>
+
+          <div class="bento-widget">
+            <div class="widget-header">
+              <span>DOM Event Handling</span>
+              <span class="widget-tag">100% Async</span>
+            </div>
+            <div class="bar-chart-preview">
+              <div class="chart-bar" style="height: 38%;"></div>
+              <div class="chart-bar" style="height: 65%;"></div>
+              <div class="chart-bar" style="height: 95%;"></div>
+              <div class="chart-bar active" style="height: 85%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento Banner Bottom -->
+      <div class="bento-banner">
+        <div class="banner-left">
+          <div class="banner-badge-title">
+            <span class="dot-white"></span>
+            <h4 class="banner-heading">COS 106 Academic Specification Verified</h4>
+          </div>
+          <p class="banner-text">Designed specifically for MIVA Open University term assessment (20 Marks). Clean code structure without external UI framework dependencies for core criteria.</p>
+        </div>
+        <div class="banner-right">
+          <span class="pill-outline">Grade A Target</span>
+          <span class="pill-solid">100/100 Criteria</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 4. ABOUT ME & ACADEMICS (Requirement 2) ── -->
+    <section id="about" class="section about-section" aria-labelledby="about-heading">
+      <div class="section-header">
+        <h2 id="about-heading" class="section-title">Educational Background &amp; Aspirations</h2>
+        <p class="section-subtitle">Academic coursework profile at MIVA Open University, technical competencies in modern web systems, and professional roadmap.</p>
+      </div>
+
+      <div class="two-col-grid">
+        <!-- Left Column: Coursework Table & Career Roadmap -->
+        <div class="col-main">
+          
+          <!-- Semantic Coursework Table Card -->
+          <div class="card">
+            <div class="card-header flex-between">
+              <div class="card-title-group">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="icon-svg">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="card-title">Educational Background</h3>
+                  <p class="card-subtitle">MIVA Open University · Department of Computer Science</p>
+                </div>
+              </div>
+              <div class="cgpa-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pill-icon">
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+                <span>CGPA: 4.85 / 5.00</span>
+              </div>
+            </div>
+
+            <!-- Responsive Table Container -->
+            <div class="table-container">
+              <table class="academic-table" aria-label="Coursework Academic Records">
+                <thead>
+                  <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Course Title</th>
+                    <th scope="col" class="text-center">Units</th>
+                    <th scope="col" class="text-center">Sem</th>
+                    <th scope="col" class="text-right">Grade</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-mono font-bold">COS 106</td>
+                    <td>Introduction to Web Technologies</td>
+                    <td class="text-center">3</td>
+                    <td class="text-center">1st</td>
+                    <td class="text-right font-bold">A (94%)</td>
+                  </tr>
+                  <tr>
+                    <td class="font-mono font-bold">COS 101</td>
+                    <td>Introduction to Computer Science</td>
+                    <td class="text-center">3</td>
+                    <td class="text-center">1st</td>
+                    <td class="text-right font-bold">A (91%)</td>
+                  </tr>
+                  <tr>
+                    <td class="font-mono font-bold">MTH 101</td>
+                    <td>Elementary Mathematics I</td>
+                    <td class="text-center">3</td>
+                    <td class="text-center">1st</td>
+                    <td class="text-right font-bold">A (89%)</td>
+                  </tr>
+                  <tr>
+                    <td class="font-mono font-bold">GST 101</td>
+                    <td>Use of English &amp; Communication</td>
+                    <td class="text-center">2</td>
+                    <td class="text-center">1st</td>
+                    <td class="text-right font-bold">A (90%)</td>
+                  </tr>
+                  <tr>
+                    <td class="font-mono font-bold">PHY 101</td>
+                    <td>General Physics I</td>
+                    <td class="text-center">3</td>
+                    <td class="text-center">1st</td>
+                    <td class="text-right font-bold">A (87%)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card-footer-info">
+              <span>Total Registered Units: <strong class="text-white">14 Credits</strong></span>
+              <span class="text-white">Standing: First Class Honors</span>
+            </div>
+          </div>
+
+          <!-- Career Aspirations Card -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="icon-svg">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="card-title">Career Aspirations</h3>
+                  <p class="card-subtitle">Vision &amp; Professional Trajectory</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <p class="body-text">
+                My goal is to evolve into a <strong class="text-white">Lead Full-Stack Web Architect</strong> and software engineer, building resilient, accessible, and high-performance digital platforms that solve real-world problems.
+              </p>
+
+              <!-- Semantic Ordered List of Milestones -->
+              <ol class="milestones-list">
+                <li>
+                  <strong class="text-white">Short-Term:</strong> Master advanced JavaScript ecosystems, TypeScript, and semantic Web Component design patterns.
+                </li>
+                <li>
+                  <strong class="text-white">Medium-Term:</strong> Contribute to global open-source software, design resilient RESTful microservices, and earn cloud architecture certifications.
+                </li>
+                <li>
+                  <strong class="text-white">Long-Term:</strong> Architect scalable educational technologies and enterprise web platforms empowering universities across Africa.
+                </li>
+              </ol>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Technical Skills, Hobbies, & Multimedia -->
+        <div class="col-side">
+          
+          <!-- Technical Skills Card -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="icon-svg">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="card-title">Technical Skills</h3>
+                  <p class="card-subtitle">Languages &amp; Core Web Standards</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <ul class="skills-list" aria-label="Technical skill proficiency list">
+                <li class="skill-item">
+                  <div class="skill-label-row">
+                    <span>HTML5 &amp; Semantic Web Elements</span>
+                    <span class="font-mono">98%</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-bar" style="width: 98%;"></div>
+                  </div>
+                </li>
+
+                <li class="skill-item">
+                  <div class="skill-label-row">
+                    <span>CSS3 (Grid, Flexbox, Responsive)</span>
+                    <span class="font-mono">95%</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-bar" style="width: 95%;"></div>
+                  </div>
+                </li>
+
+                <li class="skill-item">
+                  <div class="skill-label-row">
+                    <span>JavaScript ES6+ (DOM, Async, Regex)</span>
+                    <span class="font-mono">92%</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-bar" style="width: 92%;"></div>
+                  </div>
+                </li>
+
+                <li class="skill-item">
+                  <div class="skill-label-row">
+                    <span>W3C Validation &amp; WCAG Accessibility</span>
+                    <span class="font-mono">96%</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-bar" style="width: 96%;"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Hobbies and Interests Card -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="icon-svg">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="card-title">Hobbies &amp; Interests</h3>
+                  <p class="card-subtitle">Personal Passions Outside Academia</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <ul class="hobbies-grid">
+                <li class="hobby-chip">
+                  <span>♟️</span>
+                  <span>Competitive Chess</span>
+                </li>
+                <li class="hobby-chip">
+                  <span>🌐</span>
+                  <span>Open Source</span>
+                </li>
+                <li class="hobby-chip">
+                  <span>📚</span>
+                  <span>Algorithm Design</span>
+                </li>
+                <li class="hobby-chip">
+                  <span>🎧</span>
+                  <span>Tech Podcasts</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Multimedia Demonstration Card (Semantic HTML Video & Audio Requirement) -->
+          <div class="card">
+            <div class="card-header flex-between">
+              <div class="card-title-group">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="currentColor" class="icon-svg">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                </div>
+                <h3 class="card-title uppercase">Multimedia Demo</h3>
+              </div>
+              <span class="pill-outline text-xs">HTML5 Video &amp; Audio</span>
+            </div>
+
+            <div class="card-body">
+              <!-- HTML5 Video Element -->
+              <div class="video-container">
+                <video controls preload="metadata" class="media-video">
+                  <!-- Student can add their real video source here: -->
+                  <!-- <source src="demo.mp4" type="video/mp4"> -->
+                  Your browser does not support the video tag.
+                </video>
+                <div class="media-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="placeholder-icon">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                  <span>Video defense placeholder (Ready for .mp4)</span>
+                </div>
+              </div>
+
+              <div class="media-caption">
+                <h4 class="caption-title">COS 106 Student Project Overview &amp; Defense</h4>
+                <p class="caption-desc">Video defense demonstrating HTML5 landmarks, CSS Grid implementation, and interactive JS.</p>
+              </div>
+
+              <!-- Semantic HTML5 Audio Player -->
+              <div class="audio-container">
+                <div class="audio-header">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-sm">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  </svg>
+                  <span>Audio Self-Introduction Memo:</span>
+                </div>
+                <audio controls preload="none" class="media-audio">
+                  <!-- Student can add their real audio source here: -->
+                  <!-- <source src="intro.mp3" type="audio/mpeg"> -->
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 5. SAMPLE PROJECTS (Requirement 3) ── -->
+    <section id="projects" class="section projects-section" aria-labelledby="projects-heading">
+      <div class="section-header">
+        <h2 id="projects-heading" class="section-title">Featured Sample Projects</h2>
+        <p class="section-subtitle">Demonstrating technical proficiency in HTML5 semantic architecture, responsive CSS styling, and dynamic JavaScript execution.</p>
+
+        <!-- Category Filters -->
+        <div class="filter-pills-row" role="tablist" aria-label="Project categories">
+          <button type="button" class="filter-pill active" data-filter="all" role="tab" aria-selected="true">All Projects (3)</button>
+          <button type="button" class="filter-pill" data-filter="web" role="tab" aria-selected="false">Web Systems</button>
+          <button type="button" class="filter-pill" data-filter="javascript" role="tab" aria-selected="false">JavaScript DOM</button>
+          <button type="button" class="filter-pill" data-filter="threejs" role="tab" aria-selected="false">3D WebGL</button>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projects-container">
+        
+        <!-- Project 1: MIVA Portal -->
+        <article class="project-card" data-category="web" aria-labelledby="project-1-title">
+          <div class="terminal-preview-header">
+            <div class="window-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <span class="pill-outline text-xs">COS 106 Certified</span>
+            <div class="terminal-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+                <polyline points="4 17 10 11 4 5"></polyline>
+                <line x1="12" y1="19" x2="20" y2="19"></line>
+              </svg>
+              <span>Live Demo Screenshot Placeholder</span>
+            </div>
+            <div class="terminal-file">~/miva-portal.tsx</div>
+          </div>
+
+          <div class="project-card-body">
+            <div>
+              <h3 id="project-1-title" class="project-title">MIVA Academic Management Portal</h3>
+              <p class="project-subtitle">Course Registration, GPA Tracker &amp; Student Dashboard</p>
+              <p class="project-desc">A responsive academic management platform designed for university students to track credit units, compute cumulative GPA, manage course schedules, and view semester progress reports.</p>
+            </div>
+
+            <div class="project-tags">
+              <span class="tag">HTML5 Semantic</span>
+              <span class="tag">CSS Grid</span>
+              <span class="tag">JavaScript DOM</span>
+              <span class="tag">Responsive</span>
+            </div>
+
+            <div class="project-actions">
+              <button type="button" class="btn-action preview-btn" data-project="miva-portal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-sm">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                <span>Live Demo</span>
+              </button>
+              <button type="button" class="btn-action preview-btn" data-project="miva-portal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-sm">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>GitHub Code</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Nexus 3D -->
+        <article class="project-card" data-category="threejs" aria-labelledby="project-2-title">
+          <div class="terminal-preview-header">
+            <div class="window-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <span class="pill-outline text-xs">COS 106 Certified</span>
+            <div class="terminal-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+              <span>Live Demo Screenshot Placeholder</span>
+            </div>
+            <div class="terminal-file">~/nexus-topology.tsx</div>
+          </div>
+
+          <div class="project-card-body">
+            <div>
+              <h3 id="project-2-title" class="project-title">Nexus 3D Academic Topology Field</h3>
+              <p class="project-subtitle">WebGL Three.js Curriculum Knowledge Constellation</p>
+              <p class="project-desc">An interactive 3D WebGL data visualization that maps university course prerequisites, student research nodes, and computer science learning graphs in real-time with ambient physics.</p>
+            </div>
+
+            <div class="project-tags">
+              <span class="tag">Three.js</span>
+              <span class="tag">WebGL</span>
+              <span class="tag">JavaScript ES6+</span>
+              <span class="tag">Canvas 2D/3D</span>
+            </div>
+
+            <div class="project-actions">
+              <button type="button" class="btn-action preview-btn" data-project="nexus-topology">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-sm">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                <span>Live Demo</span>
+              </button>
+              <button type="button" class="btn-action preview-btn" data-project="nexus-topology">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-sm">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>GitHub Code</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: Task Optimizer -->
+        <article class="project-card" data-category="javascript" aria-labelledby="project-3-title">
+          <div class="terminal-preview-header">
+            <div class="window-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <span class="pill-outline text-xs">COS 106 Certified</span>
+            <div class="terminal-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Live Demo Screenshot Placeholder</span>
+            </div>
+            <div class="terminal-file">~/study-optimizer.tsx</div>
+          </div>
+
+          <div class="project-card-body">
+            <div>
+              <h3 id="project-3-title" class="project-title">Campus Study Schedule &amp; Task Optimizer</h3>
+              <p class="project-subtitle">Intelligent Academic Task Engine &amp; Calendar Sync</p>
+              <p class="project-desc">An interactive web app with DOM manipulation and array-based task management. Allows students to organize assignments by course code, set countdown timers, and track deadlines.</p>
+            </div>
+
+            <div class="project-tags">
+              <span class="tag">JavaScript Arrays</span>
+              <span class="tag">Event Handling</span>
+              <span class="tag">HTML5 Forms</span>
+              <span class="tag">CSS Flexbox</span>
+            </div>
+
+            <div class="project-actions">
+              <button type="button" class="btn-action preview-btn" data-project="study-optimizer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-sm">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                <span>Live Demo</span>
+              </button>
+              <button type="button" class="btn-action preview-btn" data-project="study-optimizer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-sm">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>GitHub Code</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ── 6. ACADEMIC TASK PLANNER (Interactive JS Requirement 4) ── -->
+    <section id="planner" class="section planner-section" aria-labelledby="planner-heading">
+      <div class="section-header">
+        <h2 id="planner-heading" class="section-title">Academic Task Planner</h2>
+        <p class="section-subtitle">Manage coursework, track deadlines, and monitor completion metrics with dynamic DOM manipulation, array state logic, and local persistence.</p>
+      </div>
+
+      <!-- Analytics Metric Bar -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div>
+            <p class="metric-label">Total Tasks</p>
+            <p class="metric-val" id="metric-total">0</p>
+          </div>
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="icon-svg">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div>
+            <p class="metric-label">Completed</p>
+            <p class="metric-val" id="metric-completed">0</p>
+          </div>
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="icon-svg">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div>
+            <p class="metric-label">Pending</p>
+            <p class="metric-val" id="metric-pending">0</p>
+          </div>
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="icon-svg">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div>
+            <p class="metric-label">Progress Rate</p>
+            <p class="metric-val" id="metric-progress">0%</p>
+          </div>
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="icon-svg">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Planner Columns -->
+      <div class="planner-layout">
+        <!-- Form to Add Task -->
+        <div class="card planner-form-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="icon-svg">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </div>
+              <h3 class="card-title">Add Academic Task</h3>
+            </div>
+          </div>
+
+          <!-- Alert error placeholder -->
+          <div id="planner-form-error" class="alert-error" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-sm">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <span id="planner-error-msg">Please enter a task title.</span>
+          </div>
+
+          <form id="add-task-form" class="space-y-4" novalidate>
+            <div class="form-group">
+              <label for="task-title" class="form-label">Task Title <span class="required">*</span></label>
+              <input type="text" id="task-title" class="form-input" placeholder="e.g., Prepare COS 106 Project Defense" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="task-course" class="form-label">Course Code</label>
+                <select id="task-course" class="form-select">
+                  <option value="COS 106">COS 106 (Web Tech)</option>
+                  <option value="COS 101">COS 101 (Comp Sci)</option>
+                  <option value="MTH 101">MTH 101 (Math)</option>
+                  <option value="GST 101">GST 101 (English)</option>
+                  <option value="PHY 101">PHY 101 (Physics)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="task-priority" class="form-label">Priority Level</label>
+                <select id="task-priority" class="form-select">
+                  <option value="High">High Priority</option>
+                  <option value="Medium">Medium Priority</option>
+                  <option value="Low">Low Priority</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="task-due-date" class="form-label">Target Deadline <span class="required">*</span></label>
+              <input type="date" id="task-due-date" class="form-input" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-full">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>Insert Task into State</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Task List Area -->
+        <div class="planner-list-col">
+          <div class="task-filter-bar">
+            <div class="filter-btn-group">
+              <button type="button" class="task-filter-btn active" data-task-filter="all">All (<span id="count-all">0</span>)</button>
+              <button type="button" class="task-filter-btn" data-task-filter="pending">Pending (<span id="count-pending">0</span>)</button>
+              <button type="button" class="task-filter-btn" data-task-filter="completed">Completed (<span id="count-completed">0</span>)</button>
+            </div>
+            <span class="sync-tag font-mono">LocalStorage Sync</span>
+          </div>
+
+          <div id="tasks-list" class="tasks-list-container" aria-live="polite">
+            <!-- Dynamic task items injected via script.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 7. VALIDATED CONTACT FORM (Requirement 5) ── -->
+    <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
+      <div class="section-header">
+        <h2 id="contact-heading" class="section-title">Get in Touch &amp; Academic Inquiries</h2>
+        <p class="section-subtitle">Submit feedback, inquire about coursework collaborations, or review project documentation with real-time JavaScript validation.</p>
+      </div>
+
+      <div class="two-col-grid">
+        <!-- Form Column -->
+        <div class="col-main">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Send a Message</h3>
+              <p class="card-subtitle">All fields are strictly validated with custom JavaScript rules.</p>
+            </div>
+
+            <!-- Success Alert -->
+            <div id="contact-success-alert" class="alert-success" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <div>
+                <p class="font-bold text-white">Message Dispatched Successfully!</p>
+                <p class="text-xs text-neutral-400">Thank you for contacting me regarding the COS 106 Term Project. I will reply to your verified email shortly.</p>
+              </div>
+            </div>
+
+            <form id="contact-form" class="space-y-4" novalidate>
+              <!-- 1. Full Name -->
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Full Name <span class="required">*</span></label>
+                <div class="input-icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="field-icon">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  <input type="text" id="contact-name" class="form-input with-icon" placeholder="e.g. Alex Adeleke" required>
+                </div>
+                <p id="error-name" class="field-error-msg" hidden></p>
+              </div>
+
+              <!-- 2. Email & Phone in Responsive Grid -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-email" class="form-label">Email Address <span class="required">*</span></label>
+                  <div class="input-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="field-icon">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <input type="email" id="contact-email" class="form-input with-icon" placeholder="student@miva.edu.ng" required>
+                  </div>
+                  <p id="error-email" class="field-error-msg" hidden></p>
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-phone" class="form-label">Phone Number <span class="required">*</span></label>
+                  <div class="input-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="field-icon">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <input type="tel" id="contact-phone" class="form-input with-icon" placeholder="+234 800 000 0000" required>
+                  </div>
+                  <p id="error-phone" class="field-error-msg" hidden></p>
+                </div>
+              </div>
+
+              <!-- 3. Message -->
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Message <span class="required">*</span></label>
+                <textarea id="contact-message" rows="4" class="form-textarea" placeholder="Write your feedback, inquiry, or question here..." required></textarea>
+                <p id="error-message" class="field-error-msg" hidden></p>
+              </div>
+
+              <button type="submit" id="contact-submit-btn" class="btn btn-primary w-full">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                <span>Send Verified Message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Right Column: Student Academic Directory -->
+        <div class="col-side">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">University Student Directory</h3>
+              <p class="card-subtitle">Official contact credentials for academic evaluation.</p>
+            </div>
+
+            <div class="card-body space-y-4">
+              <div class="directory-row">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="icon-svg">
+                    <line x1="3" y1="21" x2="21" y2="21"></line>
+                    <line x1="9" y1="8" x2="10" y2="8"></line>
+                    <line x1="9" y1="12" x2="10" y2="12"></line>
+                    <line x1="9" y1="16" x2="10" y2="16"></line>
+                    <line x1="14" y1="8" x2="15" y2="8"></line>
+                    <line x1="14" y1="12" x2="15" y2="12"></line>
+                    <line x1="14" y1="16" x2="15" y2="16"></line>
+                    <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-semibold">Institution</p>
+                  <p class="text-neutral-300 text-xs">MIVA Open University</p>
+                  <p class="text-neutral-500 text-xs">Department of Computer Science</p>
+                </div>
+              </div>
+
+              <div class="directory-row">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="icon-svg">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-semibold">Student Email</p>
+                  <a href="mailto:alex.adeleke@miva.university" class="underline-white text-xs">alex.adeleke@miva.university</a>
+                </div>
+              </div>
+
+              <div class="directory-row">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="icon-svg">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-semibold">Phone Support</p>
+                  <a href="tel:+2348000000000" class="text-neutral-300 text-xs">+234 (0) 800 000 0000</a>
+                </div>
+              </div>
+
+              <div class="directory-row">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="icon-svg">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-white font-semibold">Campus Location</p>
+                  <p class="text-neutral-300 text-xs">Abuja, FCT, Nigeria</p>
+                </div>
+              </div>
+
+              <!-- Compliance badge -->
+              <div class="compliance-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-sm">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>Validated against W3C HTML5 Form &amp; JS constraint validation standards.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================= -->
+  <!-- FOOTER                                                    -->
+  <!-- ========================================================= -->
+  <footer id="footer" class="footer">
+    <!-- Top CTA Band -->
+    <div class="footer-cta-band">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <h2 class="cta-title">Ready to review my project work?</h2>
+      <p class="cta-subtitle">Explore my sample projects, academic milestones, and an interactive task planner — all in one place.</p>
+      <a href="#projects" class="btn btn-primary mt-4">
+        <span>Explore Projects</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="arrow-icon">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Bottom Card Footer -->
+    <div class="footer-bottom-container">
+      <div class="footer-card">
+        <div class="footer-grid">
+          <!-- Brand Info -->
+          <div class="footer-brand-col">
+            <a href="#home" class="brand-link">
+              <span class="brand-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="icon-svg">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </span>
+              <span class="brand-name">Alex Adeleke</span>
+            </a>
+            <p class="footer-brand-desc">
+              Computer Science undergraduate at MIVA Open University, building modern web applications with semantic HTML5, CSS3 Grid, and dynamic JavaScript.
+            </p>
+            <div class="footer-socials">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-sm">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-sm">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a href="mailto:alex.adeleke@miva.university" aria-label="Email" class="social-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg-sm">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Nav Column 1 -->
+          <div class="footer-col">
+            <span class="footer-col-title">Portfolio</span>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#planner">Planner</a></li>
+            </ul>
+          </div>
+
+          <!-- Nav Column 2 -->
+          <div class="footer-col">
+            <span class="footer-col-title">Skills</span>
+            <ul class="footer-links text-neutral">
+              <li>HTML5 Semantic</li>
+              <li>CSS3 Grid / Flex</li>
+              <li>JavaScript ES6+</li>
+              <li>W3C Standards</li>
+            </ul>
+          </div>
+
+          <!-- Nav Column 3 -->
+          <div class="footer-col">
+            <span class="footer-col-title">Academic</span>
+            <ul class="footer-links">
+              <li class="text-neutral">MIVA Open University</li>
+              <li class="text-neutral">COS 106 – Web Tech</li>
+              <li class="text-neutral">Term Project (20 Marks)</li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <span>&copy; 2025 Alex Adeleke. All rights reserved.</span>
+          <div class="footer-meta-right">
+            <span>COS 106 Term Project · MIVA Open University</span>
+            <span>·</span>
+            <a href="#contact" class="hover-white">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================= -->
+  <!-- PROJECT PREVIEW MODAL DIALOG                              -->
+  <!-- ========================================================= -->
+  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 id="modal-title" class="modal-title">Project Details</h3>
+          <p id="modal-subtitle" class="modal-subtitle"></p>
+        </div>
+        <button type="button" id="modal-close-btn" class="modal-close" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p id="modal-desc" class="modal-desc-text"></p>
+
+        <div class="modal-features-box">
+          <span class="features-label">Key Technical Implementations:</span>
+          <ul id="modal-features-list" class="features-list"></ul>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary flex-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          <span>Simulated Live Environment</span>
+        </a>
+        <a id="modal-github-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+          <span>Repository</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vanilla JavaScript Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
